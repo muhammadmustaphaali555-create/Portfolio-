@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Mustapha Sidi | Developer</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #3d2b1f;
+            background: #faf6f0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            background: #4a2f1a;
+            color: #fff;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(60, 40, 20, 0.4);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e8d5b8;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e8d5b8;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        header {
+            background: linear-gradient(145deg, #4a2f1a 0%, #6b4226 100%);
+            color: #fff;
+            padding: 80px 0 60px;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #e8d5b8;
+        }
+
+        .tagline {
+            font-size: 20px;
+            color: #d4c0a8;
+            margin-bottom: 12px;
+        }
+
+        .bio {
+            font-size: 18px;
+            color: #dccfc0;
+            margin-bottom: 24px;
+            max-width: 450px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #a67b5b;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #8b5a3a;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid #e8d5b8;
+            color: #fff;
+        }
+
+        .btn-outline:hover {
+            background: #6b4226;
+            border-color: #6b4226;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 0 0 160px;
+            text-align: center;
+        }
+
+        .avatar-placeholder {
+            font-size: 100px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 50%;
+            width: 160px;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #e8d5b8;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            color: #4a2f1a;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #a67b5b;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ===== ABOUT ===== */
+        #about {
+            background: #ffffff;
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            color: #3d2b1f;
+        }
+
+        .about-content p {
+            margin-bottom: 16px;
+        }
+
+        /* ===== PROJECTS ===== */
+        #projects {
+            background: #f5ede4;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #fff;
+            padding: 28px 22px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(60, 40, 20, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(60, 40, 20, 0.15);
+        }
+
+        .project-icon {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 8px;
+            color: #4a2f1a;
+        }
+
+        .project-card p {
+            color: #5a4030;
+            font-size: 15px;
+            margin-bottom: 14px;
+        }
+
+        .tech-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tech-tags span {
+            background: #ede3d8;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #4a2f1a;
+        }
+
+        .project-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .project-links a {
+            color: #6b4226;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .project-links a:hover {
+            color: #4a2f1a;
+            text-decoration: underline;
+        }
+
+        /* ===== SKILLS ===== */
+        #skills {
+            background: #ffffff;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            background: #4a2f1a;
+            color: #fff;
+            padding: 10px 28px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .skill-item:hover {
+            background: #6b4226;
+            transform: scale(1.05);
+        }
+
+        /* ===== CERTIFICATES SECTION ===== */
+        #certificates {
+            background: #f5ede4;
+        }
+
+        .cert-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: #fff;
+            padding: 28px 24px;
+            border-radius: 20px;
+            box-shadow: 0 6px 18px rgba(60, 40, 20, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            flex: 1 1 260px;
+            max-width: 320px;
+            border: 1px solid #dccfc0;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(60, 40, 20, 0.10);
+        }
+
+        .cert-icon {
+            font-size: 44px;
+            margin-bottom: 10px;
+        }
+
+        .cert-card h3 {
+            font-size: 20px;
+            color: #4a2f1a;
+            margin-bottom: 6px;
+        }
+
+        .cert-card p {
+            color: #5a4030;
+            font-size: 15px;
+            margin-bottom: 14px;
+        }
+
+        .cert-link {
+            display: inline-block;
+            background: #4a2f1a;
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .cert-link:hover {
+            background: #6b4226;
+            transform: scale(1.03);
+        }
+
+        /* ===== CONTACT ===== */
+        #contact {
+            background: #4a2f1a;
+            color: #fff;
+        }
+
+        .contact-sub {
+            text-align: center;
+            font-size: 18px;
+            color: #d4c0a8;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-btn {
+            background: rgba(255, 255, 255, 0.07);
+            padding: 12px 32px;
+            border-radius: 30px;
+            color: #fff;
+            font-weight: 500;
+            transition: 0.3s;
+            border: 1px solid rgba(232, 213, 184, 0.25);
+        }
+
+        .contact-btn:hover {
+            background: #6b4226;
+            transform: translateY(-3px);
+            border-color: #e8d5b8;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #332214;
+            color: #a08870;
+            text-align: center;
+            padding: 24px 0;
+            font-size: 14px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .bio {
+                margin: 0 auto 24px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .avatar-placeholder {
+                width: 120px;
+                height: 120px;
+                font-size: 70px;
+                margin: 0 auto;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #4a2f1a;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                padding: 20px 0;
+                text-align: center;
+                gap: 14px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Muhammad Mustapha Sidi</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">☰</button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <header>
+        <div class="container hero">
+            <div class="hero-text">
+                <h1>Hi, I'm <span class="highlight">Muhammad Mustapha Sidi</span></h1>
+                <p class="tagline">Beginner Developer | Problem Solver | Curious Learner</p>
+                <p class="bio">
+                    I build clean, functional websites and love turning ideas into code.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">See My Work</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="avatar-placeholder">👨‍💻</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>
+                    I'm a passionate beginner developer who recently started my coding journey.
+                    I'm in level 200 in Software engineering at Northwest University Kano.
+                    I love learning new technologies and building projects that solve real problems.
+                    Currently exploring <strong>HTML, CSS, JavaScript.</strong>
+                </p>
+                <p>
+                    When I'm not coding, I enjoy gaming, reading tech blogs, and contributing
+                    to open-source projects.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+
+                <!-- Simple Calculator -->
+                <div class="project-card">
+                    <div class="project-icon">🧮</div>
+                    <h3>Simple Calculator</h3>
+                    <p>Basic calculator with add, subtract, multiply, divide and clear.</p>
+                    <div class="tech-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">Live Demo</a>
+                        <a href="https://github.com/muhammadmustaphaali555-create" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Beginner Website: Personal Bio / Landing Page -->
+                <div class="project-card">
+                    <div class="project-icon">🌱</div>
+                    <h3>Personal Bio Page</h3>
+                    <p>A clean one-page bio with intro, hobbies, and social links.</p>
+                    <div class="tech-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">Live Demo</a>
+                        <a href="https://github.com/muhammadmustaphaali555-create" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">HTML5</div>
+                <div class="skill-item">CSS3</div>
+                <div class="skill-item">JavaScript</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICATES ===== -->
+    <section id="certificates">
+        <div class="container">
+            <h2 class="section-title">Certificates</h2>
+            <div class="cert-grid">
+                <!-- Responsive Web Design Certificate -->
+                <div class="cert-card">
+                    <div class="cert-icon">📜</div>
+                    <h3>Responsive Web Design</h3>
+                    <p>FreeCodeCamp certification — HTML & CSS, flexbox, grid, media queries.</p>
+                    <a href="https://www.freecodecamp.org/certification/fcc-2344319d-89fb-4b64-bbdb-ed3c051d52dc/responsive-web-design"
+                       target="_blank"
+                       class="cert-link">View Certificate</a>
+                </div>
+                <!-- JavaScript Algorithms -->
+                <div class="cert-card">
+                    <div class="cert-icon">⚡</div>
+                    <h3>JavaScript Algorithms</h3>
+                    <p>FreeCodeCamp (in progress) — core JS, functions, arrays, objects.</p>
+                    <a href="#" class="cert-link">In Progress</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: #fff;">Contact Me</h2>
+            <p class="contact-sub">Let's connect! I'm open to collaborations and opportunities.</p>
+            <div class="contact-links">
+                <a href="mailto:muhammadmustaphaali555@gmail.com" class="contact-btn">📧 Email</a>
+                <a href="https://wa.me/2348102556302" target="_blank" class="contact-btn">💬 WhatsApp</a>
+                <a href="https://github.com/muhammadmustaphaali555-create" target="_blank" class="contact-btn">🐙 GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Muhammad Mustapha Sidi. Built with ❤️ and caffeine.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== HAMBURGER MENU =====
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ===== SMOOTH SCROLLING =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
